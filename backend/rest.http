@@ -1,0 +1,33 @@
+GET http://localhost:5000/
+
+### register user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "johndoeee@mail.com",
+    "password": "123456"
+}
+
+### login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "johndoeee@mail.com",
+    "password": "123456"
+}
+
+### refresh/generate new tokens
+POST http://localhost:5000/api/auth/refresh
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTdkMDUwZjMyOTI2MzViMGVlMWJmMiIsImlhdCI6MTYwOTAzMDA2MSwiZXhwIjoxNjA5MDMwMzYxfQ.avHR4QIfJQ6CGtq39WhiA6DM-e6t_JRKKXpk8V4sI9U",
+}
+
+### access protected route
+GET http://localhost:5000/api/auth/protected
+Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTdkMDUwZjMyOTI2MzViMGVlMWJmMiIsImlhdCI6MTYwOTAzMDIyOCwiZXhwIjoxNjA5MDMwNTI4fQ.1upCF3aligwXNb4MkQdFA0KLoV5Oidr28Ky_KdOQ0xs
